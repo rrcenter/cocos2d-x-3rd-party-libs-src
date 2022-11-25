@@ -24,7 +24,7 @@ jobs:
   ios:
     # The type of runner that the job will run on, macos-12
     # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
-    runs-on: macos-10.15
+    runs-on: macos-12
     
     strategy:
       matrix:
@@ -43,14 +43,14 @@ jobs:
       - name: Setup Xcode version
         uses: maxim-lobanov/setup-xcode@v1
         with: 
-          xcode-version: '12.4' #'13.4' https://developer.apple.com/support/xcode/
+          xcode-version: '13.4' #'13.4' https://developer.apple.com/support/xcode/
 
       # https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md
       # - name: Install brew
         # run: bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       
       - name: install env
-        run: brew install automake perl@5.18
+        run: brew install automake
 
       - name: Build
         run: cd build && ./build.sh -p=ios --libs=png,zlib,websockets,curl,freetype,jpeg,tiff,webp,openssl,uv --mode=release
