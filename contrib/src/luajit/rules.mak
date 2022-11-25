@@ -100,7 +100,6 @@ endif #ifndef HAVE_ANDROID
 
 ifdef HAVE_IOS
 
-export MACOSX_DEPLOYMENT_TARGET=10.14
 ifeq ($(MY_TARGET_ARCH),x86_64)
 	cd $< && CFLAGS="-DLUAJIT_ENABLE_GC64" LD_FLAGS="" $(MAKE) -j8
 else
@@ -108,5 +107,5 @@ else
 endif
 
 endif
-	cd $< && $(MAKE) install PREFIX=$(PREFIX)
+	cd $< && MACOSX_DEPLOYMENT_TARGET=10.14 $(MAKE) install PREFIX=$(PREFIX)
 	touch $@
