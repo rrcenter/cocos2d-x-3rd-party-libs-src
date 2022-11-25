@@ -43,5 +43,10 @@ jobs:
         with: 
           xcode-version: '13.4'
 
+      - name: Install brew
+        run: 
+          - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          - brew install automake
+
       - name: Build
         run: cd build && ./build.sh -p=ios --libs=all --mode=release
