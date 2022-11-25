@@ -3,12 +3,17 @@
 LUAJIT_VERSION := 2.1.0-beta3
 LUAJIT_URL := http://luajit.org/download/LuaJIT-$(LUAJIT_VERSION).tar.gz
 
-$(TARBALLS)/LuaJIT-$(LUAJIT_VERSION).tar.gz:
-	$(call download,$(LUAJIT_URL))
+# $(TARBALLS)/LuaJIT-$(LUAJIT_VERSION).tar.gz:
+# 	$(call download,$(LUAJIT_URL))
 
-.sum-luajit: LuaJIT-$(LUAJIT_VERSION).tar.gz
+# .sum-luajit: LuaJIT-$(LUAJIT_VERSION).tar.gz
 
-luajit: LuaJIT-$(LUAJIT_VERSION).tar.gz .sum-luajit
+LUAJIT_GITURL := https://github.com/LuaJIT/LuaJIT.git
+$(TARBALLS)/luajit-git.tar.xz:
+	$(call download_git,$(BOX2D_GITURL),v2.1,46aa45dcbd9f3843503ddf3e00f8dda89eac6789)
+
+
+luajit: LuaJIT-$(LUAJIT_VERSION).tar.gz
 	$(UNPACK)
 ifeq ($(LUAJIT_VERSION),2.0.1)
 	$(APPLY) $(SRC)/luajit/v2.0.1_hotfix1.patch
