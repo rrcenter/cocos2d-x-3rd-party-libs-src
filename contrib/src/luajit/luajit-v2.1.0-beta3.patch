@@ -1,3 +1,16 @@
+diff --git a/src/lib_os.c b/src/lib_os.c
+index 9e78d49..cd9c771 100644
+--- a/src/lib_os.c
++++ b/src/lib_os.c
+@@ -49,7 +49,7 @@ LJLIB_CF(os_execute)
+ #endif
+ #else
+   const char *cmd = luaL_optstring(L, 1, NULL);
+-  int stat = system(cmd);
++  int stat = 0;//system(cmd);
+ #if LJ_52
+   if (cmd)
+     return luaL_execresult(L, stat);
 diff --git a/src/luaconf.h b/src/luaconf.h
 index c2d29d9..6647c52 100644
 --- a/src/luaconf.h
