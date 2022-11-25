@@ -9,6 +9,7 @@ on:
       - contrib/src/luajit/luajit-v2.1.0-beta3.patch
       - contrib/src/openssl/rules.mak
       - contrib/bootstrap
+      - contrib/src/luajit/*
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
