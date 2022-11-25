@@ -71,14 +71,13 @@ jobs:
       BUILD_ARCH: ${{ matrix.arch }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Setup Android NDK
-        uses: nttld/setup-ndk@v1.2.0
+        uses: nttld/setup-ndk@v1
         id: setup-ndk
         with:
           ndk-version: r16b
-          local-cache: true
 
       - name: Build
         run: cd build && ./build.sh -p=android --libs=luajit --mode=release
