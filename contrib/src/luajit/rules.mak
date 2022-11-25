@@ -10,7 +10,7 @@ LUAJIT_URL := http://luajit.org/download/LuaJIT-$(LUAJIT_VERSION).tar.gz
 
 LUAJIT_GITURL := https://github.com/LuaJIT/LuaJIT.git
 $(TARBALLS)/LuaJIT-$(LUAJIT_VERSION).tar.xz:
-	$(call download_git,$(BOX2D_GITURL),v2.1,46aa45dcbd9f3843503ddf3e00f8dda89eac6789)
+	$(call download_git,$(LUAJIT_GITURL),v2.1,46aa45dcbd9f3843503ddf3e00f8dda89eac6789)
 
 
 luajit: LuaJIT-$(LUAJIT_VERSION).tar.gz
