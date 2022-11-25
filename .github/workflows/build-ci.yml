@@ -80,8 +80,8 @@ jobs:
           ndk-version: r16b
           local-cache: true
 
-      # - name: Build
-      #   run: cd build && ./build.sh -p=android --libs=luajit --mode=release
-      #   env: 
-      #     ANDROID_NDK: ${{ steps.setup-ndk.outputs.ndk-path }}
+      - name: Build
+        run: cd build && ./build.sh -p=android --libs=luajit --mode=release
+        env: 
+          ANDROID_NDK: ${{ steps.setup-ndk.outputs.ndk-path }}
 
