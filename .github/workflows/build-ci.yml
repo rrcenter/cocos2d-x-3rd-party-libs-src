@@ -8,6 +8,7 @@ on:
       - .github/workflows/build-ci.yml
       - contrib/src/luajit/luajit-v2.1.0-beta3.patch
       - contrib/src/openssl/rules.mak
+      - contrib/bootstrap
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
