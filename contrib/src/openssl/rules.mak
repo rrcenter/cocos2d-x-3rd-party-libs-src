@@ -141,7 +141,7 @@ ifdef HAVE_ANDROID
 	$(APPLY) $(SRC)/openssl/android-clang.patch
 endif
 ifdef HAVE_IOS
-	$(APPLY) $(SRC)/perl5-glob.patch
+	$(APPLY) $(SRC)/openssl/perl5-glob.patch
 	$(APPLY) $(SRC)/openssl/ios-armv7-crash.patch
 endif
 	$(MOVE)
