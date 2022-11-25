@@ -1,0 +1,26 @@
+diff --git a/Configure b/Configure
+index bd57414..2fd8a71 100644
+--- a/Configure
++++ b/Configure
+@@ -14,7 +14,7 @@ use strict;
+ use File::Basename;
+ use File::Spec::Functions qw/:DEFAULT abs2rel rel2abs/;
+ use File::Path qw/mkpath/;
+-use if $^O ne "VMS", 'File::Glob' => qw/glob/;
++use if $^O ne "VMS", 'File::Glob' => qw/bsd_glob/;
+ 
+ # see INSTALL for instructions.
+ 
+diff --git a/test/build.info b/test/build.info
+index 4550233..87250b8 100644
+--- a/test/build.info
++++ b/test/build.info
+@@ -289,7 +289,7 @@ ENDIF
+ {-
+    use File::Spec::Functions;
+    use File::Basename;
+-   use if $^O ne "VMS", 'File::Glob' => qw/glob/;
++   use if $^O ne "VMS", 'File::Glob' => qw/bsd_glob/;
+ 
+    my @nogo_headers = ( "asn1_mac.h",
+                         "__decc_include_prologue.h",

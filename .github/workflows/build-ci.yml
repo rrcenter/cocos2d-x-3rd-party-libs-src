@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/build-ci.yml
       - contrib/src/luajit/luajit-v2.1.0-beta3.patch
+      - contrib/src/openssl/rules.mak
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
@@ -29,7 +30,6 @@ jobs:
       matrix:
         arch:
           - arm64
-          - x64
     
     env:
       BUILD_TARGET: ios
