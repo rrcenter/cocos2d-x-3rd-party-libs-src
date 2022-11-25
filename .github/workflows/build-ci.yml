@@ -77,8 +77,7 @@ jobs:
         uses: nttld/setup-ndk@v1.2.0
         id: setup-ndk
         with:
-          ndk-version: r16b
-          arch: 'x86_64'
+          ndk-version: r21e
 
       - name: Build
         run: cd build && ./build.sh -p=android --libs=luajit --mode=release
