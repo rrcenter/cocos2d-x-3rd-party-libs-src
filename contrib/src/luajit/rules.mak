@@ -100,15 +100,16 @@ endif #ifndef HAVE_ANDROID
 
 ifdef HAVE_IOS
 
-echo ">>>>>"
+$(info ">>>>>")
+export MACOSX_DEPLOYMENT_TARGET = 10.14
 ifeq ($(MY_TARGET_ARCH),x86_64)
 	cd $< && CFLAGS="-DLUAJIT_ENABLE_GC64" LD_FLAGS="" $(MAKE) -j8
 else
-	echo "111"
-	export MACOSX_DEPLOYMENT_TARGET=10.14 && cd $< &&  $(MAKE) -j8 HOST_CC=$(LUAJIT_HOST_CC) CROSS=$(LUAJIT_CROSS_HOST) TARGET_SYS=iOS  TARGET_FLAGS=$(LUAJIT_TARGET_FLAGS)
-	echo "222"
+	$(info "111")
+	cd $< &&  $(MAKE) -j8 HOST_CC=$(LUAJIT_HOST_CC) CROSS=$(LUAJIT_CROSS_HOST) TARGET_SYS=iOS  TARGET_FLAGS=$(LUAJIT_TARGET_FLAGS)
+	$(info "222")
 endif
-echo "333"
+$(info "333")
 endif
 	cd $< && $(MAKE) install PREFIX=$(PREFIX)
 	touch $@
