@@ -58,36 +58,38 @@ jobs:
         run: cd build && ./build.sh -p=ios --libs=luajit --mode=release --arch=arm64,x86_64
         # run: cd build && ./build.sh -p=ios --libs=png,zlib,websockets,curl,freetype,jpeg,tiff,webp,openssl,uv --mode=release
 
-  # android:
-  #   # The type of runner that the job will run on, macos-12
-  #   # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
-  #   runs-on: macos-12
+  android:
+    # The type of runner that the job will run on, macos-12
+    # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+    runs-on: macos-12
     
-  #   strategy:
-  #     matrix:
-  #       arch:
-  #         - arm64
+    strategy:
+      matrix:
+        arch:
+          - arm64
     
-  #   env:
-  #     BUILD_TARGET: android
-  #     BUILD_ARCH: ${{ matrix.arch }}
+    env:
+      BUILD_TARGET: android
+      BUILD_ARCH: ${{ matrix.arch }}
 
-  #   # Steps represent a sequence of tasks that will be executed as part of the job
-  #   steps:
-  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #     - uses: actions/checkout@v3
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
 
-  #     - name: Setup Android NDK
-  #     - uses: nttld/setup-ndk@v1.2.0
-  #       id: setup-ndk
-  #       with:
-  #         ndk-version: r16b
-  #         local-cache: true
+      - name: Setup Android NDK
+      - uses: nttld/setup-ndk@v1.2.0
+        id: setup-ndk
+        with:
+          ndk-version: r16b
+          local-cache: true
 
-  #     - name: install env
-  #       run: brew install automake
+      - name: install env
+        run: brew install automake
 
-  #     - name: Build
-  #     -  run: cd build && ./build.sh -p=android --libs=png,zlib,websockets,curl,freetype,jpeg,tiff,webp,openssl,uv --mode=release
-  #        env: ANDROID_NDK: ${{ steps.setup-ndk.outputs.ndk-path }}
+      - name: Build
+      # -  run: cd build && ./build.sh -p=android --libs=png,zlib,websockets,curl,freetype,jpeg,tiff,webp,openssl,uv --mode=release
+        run: cd build && ./build.sh -p=android --libs=luajit --mode=release
+        env: 
+          ANDROID_NDK: ${{ steps.setup-ndk.outputs.ndk-path }}
 
