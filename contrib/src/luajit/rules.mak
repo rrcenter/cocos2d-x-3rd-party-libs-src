@@ -13,7 +13,8 @@ $(TARBALLS)/LuaJIT-$(LUAJIT_VERSION).tar.xz:
 	$(call download_git,$(LUAJIT_GITURL),v2.1,46aa45dcbd9f3843503ddf3e00f8dda89eac6789)
 
 
-luajit: LuaJIT-$(LUAJIT_VERSION).tar.gz
+# luajit: LuaJIT-$(LUAJIT_VERSION).tar.gz
+luajit: LuaJIT-$(LUAJIT_VERSION).tar.xz
 	$(UNPACK)
 ifeq ($(LUAJIT_VERSION),2.0.1)
 	$(APPLY) $(SRC)/luajit/v2.0.1_hotfix1.patch
