@@ -7,7 +7,7 @@ NDK_PLAT=linux
 sudo apt-get install libncurses5 gcc-multilib g++-multilib --fix-missing -y
 
 sudo apt-get install python3
-sudo ln -sn /usr/bin/python3 /usr/bin/python
+# sudo ln -sn /usr/bin/python3 /usr/bin/python
 
 mkdir -p buildsrc
 wget -q -O ndk.zip https://dl.google.com/android/repository/android-ndk-r16b-${NDK_PLAT}-x86_64.zip
