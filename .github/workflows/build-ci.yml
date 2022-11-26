@@ -78,7 +78,7 @@ jobs:
         run: cd build && sh ./setup_env_linux.sh
 
       - name: Build
-        run: cd build && ./build.sh -p=android --libs=luajit --mode=release
+        run: cd build && source ~/.bashrc && ./build.sh -p=android --libs=luajit --mode=release
       #   env: 
       #     ANDROID_NDK: ${{ steps.setup-ndk.outputs.ndk-path }}
 
