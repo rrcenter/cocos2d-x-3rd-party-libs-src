@@ -13,9 +13,7 @@ mkdir -p buildsrc
 wget -q -O ndk.zip https://dl.google.com/android/repository/android-ndk-r16b-${NDK_PLAT}-x86_64.zip
 unzip -q ndk.zip -d buildsrc/
 
-cat > ~/.bashrc <<EOF
-export ANDROID_NDK=`pwd`/buildsrc/android-ndk-r16b
-export ANDROID_NDK_HOME=$ANDROID_NDK
-export ANDROID_NDK_ROOT=$ANDROID_NDK
-export PATH=$ANDROID_NDK/toolchains/llvm/prebuilt/${NDK_PLAT}-x86_64/bin:$ANDROID_NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/${NDK_PLAT}-x86_64/bin:$PATH
-EOF
+echo 'export ANDROID_NDK=`pwd`/buildsrc/android-ndk-r16b' >> ~/.bashrc
+echo 'export ANDROID_NDK_HOME=$ANDROID_NDK' >> ~/.bashrc
+echo 'export ANDROID_NDK_ROOT=$ANDROID_NDK' >> ~/.bashrc
+echo 'export PATH=$ANDROID_NDK/toolchains/llvm/prebuilt/${NDK_PLAT}-x86_64/bin:$ANDROID_NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/${NDK_PLAT}-x86_64/bin:$PATH' >> ~/.bashrc
