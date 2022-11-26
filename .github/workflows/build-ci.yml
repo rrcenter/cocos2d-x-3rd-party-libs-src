@@ -59,7 +59,7 @@ jobs:
         # run: cd build && ./build.sh -p=ios --libs=png,zlib,websockets,curl,freetype,jpeg,tiff,webp,openssl,uv --mode=release
 
   android:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     
     strategy:
       matrix:
