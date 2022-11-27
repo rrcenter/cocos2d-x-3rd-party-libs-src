@@ -10,7 +10,7 @@ on:
       - contrib/src/openssl/rules.mak
       - contrib/bootstrap
       - contrib/src/luajit/*
-      - build/setup_env_linux.sh
+      - build/*
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
