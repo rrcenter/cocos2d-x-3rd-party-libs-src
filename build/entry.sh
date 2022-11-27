@@ -18,5 +18,4 @@ export ANDROID_NDK_HOME=$ANDROID_NDK
 export ANDROID_NDK_ROOT=$ANDROID_NDK
 export PATH=$ANDROID_NDK/toolchains/llvm/prebuilt/${NDK_PLAT}-x86_64/bin:$ANDROID_NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/${NDK_PLAT}-x86_64/bin:$PATH
 
-cat ./build.sh
 source ./build.sh -p=android --libs=luajit --mode=release
