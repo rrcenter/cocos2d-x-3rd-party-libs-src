@@ -135,7 +135,7 @@ $(TARBALLS)/openssl-$(OPENSSL_VERSION).tar.gz:
 
 .sum-openssl: openssl-$(OPENSSL_VERSION).tar.gz
 
-openssl: openssl-$(OPENSSL_VERSION).tar.gz .sum-openssl
+openssl: openssl-$(OPENSSL_VERSION).tar.gz #.sum-openssl
 	$(UNPACK)
 	$(APPLY) $(SRC)/openssl/perl5-glob.patch
 ifdef HAVE_ANDROID
