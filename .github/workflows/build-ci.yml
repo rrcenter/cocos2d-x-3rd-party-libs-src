@@ -56,8 +56,12 @@ jobs:
         run: brew install automake
 
       - name: Build
-        run: cd build && ./build.sh -p=ios --libs=luajit --mode=release --arch=arm64,x86_64
-        # run: cd build && ./build.sh -p=ios --libs=png,zlib,websockets,curl,freetype,jpeg,tiff,webp,openssl,uv --mode=release
+        run: cd build && ./build.sh -p=ios --mode=release --arch=arm64,x86_64 --libs=luajit,png,zlib,websockets,curl,freetype,jpeg,tiff,webp,openssl,uv 
+        # run: cd build && ./build.sh -p=ios --libs= --mode=release
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ios
+          path: build/ios/
 
   android:
     runs-on: ubuntu-latest
