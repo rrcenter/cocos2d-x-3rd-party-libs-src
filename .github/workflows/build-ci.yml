@@ -100,7 +100,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: macOS
-          path: build/ios/
+          path: build/mac/
 
   android:
     runs-on: ubuntu-latest
