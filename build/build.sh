@@ -3,11 +3,6 @@
 set -e
 set -x
 
-source ~/.bashrc
-env
-
-cat ~/.bashrc
-
 source `pwd`/main.ini
 #
 # A script to build static library for Android
