@@ -137,11 +137,11 @@ $(TARBALLS)/openssl-$(OPENSSL_VERSION).tar.gz:
 
 openssl: openssl-$(OPENSSL_VERSION).tar.gz .sum-openssl
 	$(UNPACK)
+	$(APPLY) $(SRC)/openssl/perl5-glob.patch
 ifdef HAVE_ANDROID
 	$(APPLY) $(SRC)/openssl/android-clang.patch
 endif
 ifdef HAVE_IOS
-	$(APPLY) $(SRC)/openssl/perl5-glob.patch
 	$(APPLY) $(SRC)/openssl/ios-armv7-crash.patch
 endif
 	$(MOVE)
