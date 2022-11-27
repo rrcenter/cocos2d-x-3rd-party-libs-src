@@ -1,7 +1,7 @@
 #!/bin/bash
 # exit this script if any commmand fails
 set -e
-set -x
+# set -x
 
 source `pwd`/main.ini
 #

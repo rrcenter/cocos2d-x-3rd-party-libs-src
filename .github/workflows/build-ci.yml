@@ -77,3 +77,7 @@ jobs:
       - name: Setup Android NDK
         run: cd build && source ./entry.sh
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: android
+          path: build/android/ # or path/to/artifact
