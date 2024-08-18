@@ -31,6 +31,7 @@ endif
 		--with-ssl=$(PREFIX) \
 		--with-zlib \
 		--enable-ipv6 \
+		--with-nghttp2 \
 		--disable-ldap \
 		$(configure_option)
 
