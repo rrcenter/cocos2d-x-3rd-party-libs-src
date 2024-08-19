@@ -8,7 +8,7 @@ $(TARBALLS)/curl-$(CURL_VERSION).tar.gz:
 
 .sum-curl: curl-$(CURL_VERSION).tar.gz
 
-curl: curl-$(CURL_VERSION).tar.gz .sum-curl
+curl: curl-$(CURL_VERSION).tar.gz #.sum-curl
 	$(UNPACK)
 	$(UPDATE_AUTOCONFIG)
 	$(MOVE)
@@ -25,7 +25,7 @@ ifdef HAVE_TVOS
 configure_option+=--disable-ntlm-wb
 endif
 
-.curl: curl .zlib .openssl
+.curl: curl .zlib .openssl .nghttp2
 	$(RECONF)
 	cd $< && $(HOSTVARS_PIC) ./configure $(HOSTCONF) \
 		--with-ssl=$(PREFIX) \
